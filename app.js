@@ -42,6 +42,12 @@ class UI {
 
          list.appendChild(row);
     }
+
+    static clearFields() {
+        document.querySelector('#title').value = '';
+        document.querySelector('#author').value = '';
+        document.querySelector('#isbn').value = '';
+    }
 }
 
 // Store Class: Handles Storage
@@ -51,6 +57,7 @@ document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 // Event: Add a Book
 document.querySelector('#book-form').addEventListener('submit', (e) => {
+
     // Prevent actual submit
     e.preventDefault();
 
@@ -62,7 +69,11 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     // Instatiate Book
     const book = new Book(title, author, isbn);
 
-    console.log(book)
+    // Add Book to UI
+    UI.addBookToList(book); 
+
+    // Clear fields
+    UI.clearFields();
 });
 
 // Event: Remove a Book
