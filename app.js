@@ -105,7 +105,7 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     if (title === '' || author === '' || isbn === '') {
         UI.showAlert('Niet alle velden zijn ingevuld', 'danger');
     } else {
-        // Instatiate Book
+        // Instantiate Book
         const book = new Book(title, author, isbn);
 
         // Add Book to UI
